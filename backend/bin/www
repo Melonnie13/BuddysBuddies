@@ -19,7 +19,7 @@ db.sequelize
 
     // Start listening for connections
 
-    app.listen(port, () => console.log(`Listening on port ${port}...`));
+    app.listen(port, () => console.log(`Listening like a goddess on port ${port}...`));
   })
   .catch((err) => {
     console.log('Database connection failure.');
