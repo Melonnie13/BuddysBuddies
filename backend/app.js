@@ -30,7 +30,8 @@ app.use(cookieParser());
 //^^ add the cookie-parser middleware for parsing cookies
 
 app.use(express.json());
-//^^ middleware for parsing JSON bodies of requests with Content-Type of application/json
+//^^ middleware for parsing JSON bodies of requests
+//   with Content-Type of application/json
 
 // Security Middleware
 if (!isProduction) {
