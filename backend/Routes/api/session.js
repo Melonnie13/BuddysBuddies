@@ -6,19 +6,40 @@ const express = require('express')
 const asyncHandler = require('express-async-handler');
 // ^^ will wrap asynchronous route handlers and custom middlewares
 
+const { check } = require('express-validator');
+//^^ used with handleValidationErrors to
+// validate the body of a request.
+const { handleValidationErrors } = require('../../utils/validation');
+
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { User } = require('../../db/models');
 
 const router = express.Router();
+
+const validateLogin = [
+  // ^^ checks to see if the keys credential and password are on the req.body
+  check('credential')
+    .exists({ checkFalsy: true })
+    .notEmpty()
+    .withMessage('Please provide a valid email or username.'),
+  check('password')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a password.'),
+  handleValidationErrors,
+];
 
 
 // Log in
 router.post(
     //^^ add the POST/api/session route
     '/',
+    validateLogin,
+    //^^ the middleware that checks the keys on the req.body
+    // for credential and password
     asyncHandler(async (req, res, next) => {
         //^^ wrapped in asyncHandler
       const { credential, password } = req.body;
+      //^^ expects the body of the request to have these keys
 
       const user = await User.login({ credential, password });
       //^^ calls the login static method from the User model
