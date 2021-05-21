@@ -10,9 +10,9 @@ router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 //^^ connects all the routes exported from the session and users files
 
-router.post('/test', function(req, res) {
-    res.json({ requestBody: req.body });
-});
+// router.post('/test', function(req, res) {
+//     res.json({ requestBody: req.body });
+// });
 //^^ A router is created and
 // and API test route is added to the router.
 // the API test route is accepting reqs
