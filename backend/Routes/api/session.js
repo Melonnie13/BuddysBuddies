@@ -17,6 +17,7 @@ router.post(
     //^^ add the POST/api/session route
     '/',
     asyncHandler(async (req, res, next) => {
+        //^^ wrapped in asyncHandler
       const { credential, password } = req.body;
 
       const user = await User.login({ credential, password });
@@ -39,6 +40,20 @@ router.post(
         user,
       });
     }),
+  );
+
+  // Log out
+router.delete(
+    // ^^ DELETE/api/session logout route
+    // will remove the token cookie from the response
+    // and return a JSON success message
+    // asyncHandler not wrapped around this because
+    // this handler isnt async
+    '/',
+    (_req, res) => {
+      res.clearCookie('token');
+      return res.json({ message: 'success' });
+    }
   );
 
 module.exports = router;
