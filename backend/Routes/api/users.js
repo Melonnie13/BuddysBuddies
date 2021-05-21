@@ -41,7 +41,7 @@ router.post(
     '/',
     validateSignup,
     //^^ connexts this route to this middleware
-    
+
     asyncHandler(async (req, res) => {
         //using the asyncHandler fn
       const { email, password, username } = req.body;
@@ -55,7 +55,7 @@ router.post(
       // if the user is successfully created, then call setTokenCookie
 
       return res.json({
-          //^^ return a JSOn response with the user information
+          //^^ return a JSON response with the user information
         user,
       });
     }),
