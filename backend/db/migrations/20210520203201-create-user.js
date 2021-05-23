@@ -21,18 +21,18 @@ module.exports = {
         allowNull: false,
         unique: true
       },
-      hasCouch: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false
-      },
       hashedPassword: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      hasHostedBefore: {
-      type: Sequelize.BOOLEAN,
-      allowNull: false
-    },
+      // hasCouch: {
+      //   type: Sequelize.BOOLEAN,
+      //   allowNull: false
+      // },
+      //   hasHostedBefore: {
+      //   type: Sequelize.BOOLEAN,
+      //   allowNull: false
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
