@@ -1,4 +1,16 @@
 form {
     display: flex;
     justify-content: center;
+    align-content: space-around;
+    box-sizing: border-box;
+    margin:auto;
+}
+
+.signUpFormLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+
 }
