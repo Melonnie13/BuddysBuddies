@@ -2,19 +2,32 @@
 // holds the resources for the route paths that
 // begin with /api/session
 
-const express = require('express')
-const asyncHandler = require('express-async-handler');
-// ^^ will wrap asynchronous route handlers and custom middlewares
+      // ****** IMPORTANT ******
+ // USE these three FOR EVERY ROUTE TO CREATE A ROUTER
 
+const express = require('express');
+ // this is what we need to be able to access the express router
+
+const asyncHandler = require('express-async-handler');
+ // ^^ since I'm doing database stuff, I'll want some kind of asyncHandler
+ // ^^ will wrap asynchronous route handlers and custom middlewares
+
+const router = express.Router();
+ //^^ creates an Express router
+
+     //******* IMPORTANT ****** */
+
+ // Take a second to import the database stuff I'll need
+const { User } = require('../../db/models');
+
+ // Here's also where I'd import other middleware
 const { check } = require('express-validator');
 //^^ used with handleValidationErrors to
 // validate the body of a request.
 const { handleValidationErrors } = require('../../utils/validation');
 
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
-const { User } = require('../../db/models');
 
-const router = express.Router();
 
 const validateLogin = [
   // ^^ checks to see if the keys credential and password are on the req.body

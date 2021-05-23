@@ -29,6 +29,14 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 256]
       },
     },
+    hasCouch: {
+      type:DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    hasHostedBefore: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,

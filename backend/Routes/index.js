@@ -14,7 +14,7 @@ router.use('/api', apiRouter);
 // ^^ all of the URLs of the routes in the api router
 //    will be prefixed with /api
 
-// Static routes
+// Static routes - do not change if the network is changed or reconfigured
 // Serve React build files in production
 if (process.env.NODE_ENV === 'production') {
     const path = require('path');
