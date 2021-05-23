@@ -12,6 +12,8 @@ function SignupFormPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [hasCouch, setHasCouch] = useState("yes");
+  const [hasHostedBefore] = useState("");
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
@@ -50,6 +52,16 @@ function SignupFormPage() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
+        />
+      </label>
+      <label>
+        <input
+          type="radio"
+          value='yes'
+          name='hasCouch'
+          checked={hasCouch === 'yes'}
+          onChange={(e) => setHasCouch('yes')}
+
         />
       </label>
       <label>

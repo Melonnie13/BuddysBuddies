@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Pets', {
@@ -21,7 +22,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      type: {
+      petType: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -37,6 +38,10 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: true,
       },
+      tricks: {
+        type: Sequelize.TEXT,
+        allowNull: true,
+      },
       adoptable: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
@@ -44,10 +49,10 @@ module.exports = {
       single: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
-        ifNotSingle: {
-          type: DatatTypes.TEXT,
-          allowNull: false
-        }
+        // ifNotSingle: {
+        //   type: Sequelize.TEXT,
+        //   allowNull: false
+        // }
         // *** Can I do this??? Ask a TA ***
       },
       createdAt: {

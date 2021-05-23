@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.BOOLEAN,
       allowNull: false
     },
+  
     hasHostedBefore: {
       type: DataTypes.BOOLEAN,
       allowNull: false

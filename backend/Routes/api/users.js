@@ -53,6 +53,12 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
     .withMessage('Password must be 6 characters or more.'),
+  check('hasCouch')
+    .exists({ checkFalsy: true})
+    .withMessage('You must choose whether you have a couch available'),
+  check('hasHostedBefore')
+    .exists({checkFalsy: true})
+    .withMessage('You must choose whether you have hosted a pet before.'),
   handleValidationErrors,
 ];
 

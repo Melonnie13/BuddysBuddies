@@ -29,6 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: true,
     },
+    tricks: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
     adoptable: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
@@ -36,10 +40,10 @@ module.exports = (sequelize, DataTypes) => {
     single: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      ifNotSingle: {
-        type: DataTypes.TEXT,
-        allowNull: false
-      }
+      // ifNotSingle: {
+      //   type: DataTypes.TEXT,
+      //   allowNull: false
+      // }
       // ***** can I do this?? Ask a TA ****
     }
   }, {});
