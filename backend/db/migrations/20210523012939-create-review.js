@@ -11,6 +11,21 @@ module.exports = {
       review: {
         type: Sequelize.TEXT
       },
+      couchId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: "Couches"}
+      },
+      petId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: "Pets"}
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: "Users"}
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

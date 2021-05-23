@@ -8,17 +8,25 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      couchName: {
         type: Sequelize.STRING
       },
-      type: {
-        type: Sequelize.STRING
+      petTypeOfCouch: {
+        type: Sequelize.STRING(50),
+        allowNull: false,
       },
       available: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       otherPets: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
+      userId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references:{ model: "Users" }
       },
       createdAt: {
         allowNull: false,

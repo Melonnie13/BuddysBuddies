@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Pet = sequelize.define('Pet', {
-    name:{
+    petName:{
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     otherPets: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     temperament: {
@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
       // ***** can I do this?? Ask a TA ****
     }
   }, {});
-  
+
   Pet.associate = function(models) {
     // associations can be defined here
   };

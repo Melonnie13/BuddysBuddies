@@ -5,13 +5,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT
     },
     couchId: {
-      type: INTEGER,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     petId: {
-      type: INTEGER,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     userId: {
-      type: INTEGER,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     }
   }, {});
   Review.associate = function(models) {

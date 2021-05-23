@@ -13,15 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    otherPets:
-    {
+    otherPets: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: 'Users' },
     }
   }, {});
   Couch.associate = function(models) {

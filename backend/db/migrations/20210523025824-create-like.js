@@ -9,13 +9,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       couchId: {
-        type: Sequelize.INTEGER
-      },
-      userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: "Couches"}
       },
       petId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: "Pets"}
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: "Users"}
       },
       createdAt: {
         allowNull: false,

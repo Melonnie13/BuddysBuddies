@@ -8,32 +8,47 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING
+      petName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+
       },
       age: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       sex: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       type: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       otherPets: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       temperament: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        allowNull: false,
       },
       specialCare: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        allowNull: true,
       },
       adoptable: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       single: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        ifNotSingle: {
+          type: DatatTypes.TEXT,
+          allowNull: false
+        }
+        // *** Can I do this??? Ask a TA ***
       },
       createdAt: {
         allowNull: false,

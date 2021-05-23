@@ -13,13 +13,16 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     couchId: {
-      type: INTEGER,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     petId: {
-      type: INTEGER,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     userId: {
-      type: INTEGER,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     }
   }, {});
   Booking.associate = function(models) {
