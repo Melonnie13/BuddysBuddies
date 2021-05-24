@@ -6,6 +6,30 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color:cornflowerblue;
     font-family: 'Comfortaa';
+    /* background-color: #df7861; */
 }
+
+/* @media screen and (min-width: 1000px) {
+    .menu {
+        display: none;
+    }
+
+    .big {
+        display: block;
+    }
+
+    .small {
+        display: none;
+    }
+} */
+
+/* .root-body-div {
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    background-color: red;
+} */

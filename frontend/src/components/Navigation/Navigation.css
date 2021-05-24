@@ -1,3 +1,10 @@
-.nav-login {
-    color: blue
+#homeNav {
+    background-color: #a7bbc7;
+}
+#innerNavWithLogInSignUp {
+    display: flex;
+    justify-content: flex-end;
+}
+.navBar{
+ margin: 20px;
 }

@@ -62,6 +62,16 @@ const validateSignup = [
   handleValidationErrors,
 ];
 
+// create API routes here
+
+// get all my users
+router.get('', asyncHandler(async (req, res) => {
+  const users = await User.findAll();
+  res.json(users);
+  // now since we arent sending any templates or pug stuff from our express,
+  // we're mostly gonna use res.json
+}))
+
 // Sign up
 router.post(
     //^^ POST/api/users signup route
