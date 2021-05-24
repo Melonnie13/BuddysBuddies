@@ -31,7 +31,7 @@ function SignupFormPage() {
 
   return (
       <div className='signUpFormContainer'>
-        <div className='title'>Sign up to find a buddy!</div>
+        <div className='title'>Sign up to become a buddy!</div>
         <form className='signUpForm' onSubmit={handleSubmit}>
           {/* <div className='signUpFormDiv'> */}
             <ul className='signUpFormUL'>
