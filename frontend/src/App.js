@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import LoginFormModal from "./components/LoginFormModal/LoginForm";
 import SignupFormPage from "./components/SignupFormPage";
+// import CreateCouchForm from './components/CreateCouchForm';
+// import CreatePetForm from './components/CreatePetForm';
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 
@@ -27,6 +29,9 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          {/* <Route path='/newPet'>
+            <CreatePetForm />
+          </Route> */}
         </Switch>
       )}
     </>

@@ -77,7 +77,7 @@ router.post(
     //^^ POST/api/users signup route
     '/',
     validateSignup,
-    //^^ connexts this route to this middleware
+    //^^ connects this route to this middleware
 
     asyncHandler(async (req, res) => {
         //using the asyncHandler fn

@@ -4,11 +4,17 @@ const router = require('express').Router();
 
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
+const petsRouter = require('./pets.js');
+const couchesRouter = require('./couches.js');
 
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 //^^ connects all the routes exported from the session and users files
+
+router.use('/pets', petsRouter);
+
+router.use('/couches', couchesRouter);
 
 // router.post('/test', function(req, res) {
 //     res.json({ requestBody: req.body });
@@ -43,28 +49,28 @@ router.use('/users', usersRouter);
             // }));
 
 
-            // // GET /api/restore-user
-            // const { restoreUser } = require('../../utils/auth.js');
-            // router.get(
-                //   '/restore-user',
-                //   restoreUser,
-                //   (req, res) => {
-                    //     return res.json(req.user);
-                    //   }
-                    // );
-                    //^^ tests the restoreUser middleware by
-                    // connecting the middleware and checking whether
-                    // or not the req.user key has been populated by the middleware properly.
+// // GET /api/restore-user
+// const { restoreUser } = require('../../utils/auth.js');
+// router.get(
+    //   '/restore-user',
+    //   restoreUser,
+    //   (req, res) => {
+        //     return res.json(req.user);
+        //   }
+        // );
+        //^^ tests the restoreUser middleware by
+        // connecting the middleware and checking whether
+        // or not the req.user key has been populated by the middleware properly.
 
-                    // const { requireAuth } = require('../../utils/auth.js');
-                    // router.get(
-                        //   '/require-auth',
-                        //   requireAuth,
-                        //   (req, res) => {
-                            //     return res.json(req.user);
-                            //   }
-                            // );
-                            // ^^ test for requireAuth - if no session user the route will return an "Unauthorized" error
+        // const { requireAuth } = require('../../utils/auth.js');
+        // router.get(
+            //   '/require-auth',
+            //   requireAuth,
+            //   (req, res) => {
+                //     return res.json(req.user);
+                //   }
+                // );
+                // ^^ test for requireAuth - if no session user the route will return an "Unauthorized" error
 
 
 module.exports = router;
