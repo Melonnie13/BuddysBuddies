@@ -3,9 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
 * {
-    box-sizing: border-box;
+    /* box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: 0; */
     font-family: 'Comfortaa';
     /* background-color: #faf3f3; */
 }

@@ -1,4 +1,4 @@
-// Define action types as constants
+// Define Action Types as Constants
 
 const SET_PETS= 'pets/SET_PETS';
 
@@ -14,10 +14,18 @@ const setPets = (pets) => ({
 
 });
 
-// Define thunks
+// Define Thunks
 
 export const getPets = () => async (dispatch) => {
     const res = await fetch('/api/pets');
+    // do I want a csrfFetch here?
+    // csrf attack relies on a form to execute, so
+    // don't need to worry about it for a fetch call
+
+    const users = await fetch('/api/pets');
+    console.log(pets);
+
+    // would have some sort of error checking
     if (res.ok){}
 };
 
