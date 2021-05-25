@@ -16,7 +16,7 @@
     // **** Database Stuff **** //
 
  // Take a second to import the database stuff I'll need
- const { Pet } = require('../../db/models');
+ const { Pet, User, Couch } = require('../../db/models');
 
  //******* IMPORTANT ****** */
 
@@ -57,9 +57,34 @@ const validatePetCreate = [
   handleValidationErrors,
 ];
 
-router.get('', asyncHandler(async(req, res) => {
+router.get('/', asyncHandler(async(req, res) => {
   const pets = await Pet.findAll();
   res.json(pets);
+}));
+
+// ^^ this is I want to get all my pets in my DB
+
+router.get('/recent', asyncHandler(async(req, res) => {
+  const pets = await Pet.findAll({
+    order: [
+      ['createdAt', 'DESC']
+    ]
+  });
+  res.json(pets);
+}));
+// ^^ this is if I want to get all of my pets in my DB in descending order
+// I would send a fetch request to this path
+
+router.get('/:id', asyncHandler(async (req, res) => {
+  const pet = await Pet.findByPk(re.params.id, {
+    include: {
+      model: Couch,
+      // include: //maybe userId??
+    }
+  });
+  if(pet) {
+    return res.json(pet);
+  };
 }));
 
 // Sign up
@@ -71,20 +96,14 @@ router.post(
 
   asyncHandler(async (req, res) => {
       //using the asyncHandler fn
-    const { petName, age, username } = req.body;
+    const { petName, age, sex, petType, otherPets, temperament, specialCare, tricks, adoptable, single } = req.body;
     // ^^ this route expects the req.body to have these keys
     // validateSignup middleware will check and validate these keys
 
-    const user = await User.signup({ email, username, password });
-    // ^^ call the signup static method on the User model
-
-    await setTokenCookie(res, user);
-    // if the user is successfully created, then call setTokenCookie
-
-    return res.json({
-        //^^ return a JSON response with the user information
-      user,
+    const pet = await Pet.create({
+      petName, age, sex, petType, otherPets, temperament, specialCare, tricks, adoptable, single
     });
+    return pet;
   }),
   // if the creation of a user is unsuccessful then
   // a Sequelize Validation error will be passed onto the

@@ -18,7 +18,7 @@ const router = express.Router();
     // **** Database ****
 
 // Take a second to import the database stuff I'll need
-const { User } = require('../../db/models');
+const { User, Pet, Couch } = require('../../db/models');
 
 //******* IMPORTANT ****** */
 
@@ -34,6 +34,7 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
+const couch = require('../../db/models/couch');
 
 
 const validateSignup = [
@@ -100,6 +101,10 @@ router.post(
     // a Sequelize Validation error will be passed onto the
     // next error-handling middleware
   );
+
+  // router.get('/:id', requireAuth, asyncHandler(async (req, res) => {
+
+  // }));
 
 
 module.exports = router;
