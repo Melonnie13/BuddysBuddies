@@ -26,18 +26,29 @@
 }
 #navLinkPetsRecent {
     color: #faf3f3;
-    font-weight: bolder;
+    font-weight: bold;
     font-size: 1.5em;
     /* grid-area: recentPets; */
 }
 #navLinkPetSearch {
     color: #faf3f3;
+    font-weight: bold;
     font-size: 1.5em;
     /* grid-area: petSearch; */
 }
 #pet-search-btn{
     background-color: #da7f8f;
     border-radius: 10px;
+}
+#navLinkLogin{
+    color: #faf3f3;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+#navLinkSignup{
+    color: #faf3f3;
+    font-weight: bold;
+    font-size: 1.5em;
 }
 #nav-home-btn{
     background-color: #da7f8f;
