@@ -4,6 +4,7 @@ const GET_PETS= 'pets/GET_PETS';
 const GET_PETS_TYPES= 'pets/GET_PETS_TYPES';
 const ADD_PET= 'pets/ADD_PET';
 const GET_ONE='pets/GET_ONE';
+const UPDATE_ONE='PETS/UPDATE_ONE';
 
 // Define action creators
 

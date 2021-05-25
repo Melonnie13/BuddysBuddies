@@ -1,10 +1,72 @@
-#homeNav {
+/* #homeNav {
     background-color: #a7bbc7;
-}
+    color: #faf3f3
+} */
 #innerNavWithLogInSignUp {
     display: flex;
     justify-content: flex-end;
 }
 .navBar{
- margin: 20px;
+ margin: 0px;
+}
+.banner{
+    background-image: url('../../Images/IMG_0931.PNG');
+    height: 300px;
+    max-width: 100%
+    /* display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+    "home . recentPets . petSearch"; */
+}
+#navLinkHome {
+    color: #faf3f3;
+    font-weight: bold;
+    font-size: 1.5em;
+    /* grid-area: home; */
+}
+#navLinkPetsRecent {
+    color: #faf3f3;
+    font-weight: bolder;
+    font-size: 1.5em;
+    /* grid-area: recentPets; */
+}
+#navLinkPetSearch {
+    color: #faf3f3;
+    font-size: 1.5em;
+    /* grid-area: petSearch; */
+}
+#pet-search-btn{
+    background-color: #da7f8f;
+    border-radius: 10px;
+}
+#nav-home-btn{
+    background-color: #da7f8f;
+    border-radius: 10px;
+}
+#recent-pet-btn{
+    background-color: #da7f8f;
+    border-radius: 10px;
+}
+.fas fa-user-circle {
+    background-color: #da7f8f;
+    border-radius: 10px;
+}
+.logoutbtn{
+    background-color: #da7f8f;
+    border-radius: 10px;
+    color: #faf3f3;
+    font-size: 1em;
+}
+.userEmailLogOutMenu{
+    color: #faf3f3;
+    font-size: 1em;
+}
+.userNameLogOutMenu{
+    color: #faf3f3;
+    font-size: 1em;
+}
+.profile-dropdown{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
 }

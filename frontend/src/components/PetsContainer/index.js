@@ -24,6 +24,7 @@ const PetsContainer = () => {
     }, [dispatch]);
 
     return (
+        
         <div className='petsContainerDiv'> Recently Added Pets
             <ul className='recentPets'>
                 {pets.map(pet =>
