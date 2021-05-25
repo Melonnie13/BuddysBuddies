@@ -50,6 +50,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Pet.associate = function(models) {
     // associations can be defined here
+    // Pet.belongsToMany(models.)
   };
   return Pet;
 };

@@ -20,6 +20,8 @@ function Navigation({ isLoaded }){
         <nav id='innerNavWithLogInSignUp' className='navBar'>
           <NavLink id='navLinkLogin' className='nav-login' to="/login">Log In</NavLink>
           <NavLink id='navLinkSignup' className='nav-signup' to="/signup">Sign Up</NavLink>
+          <NavLink id='navLinkPetsRecent' className='nav-recent' to='/pets/recent'>Recent Pets</NavLink>
+          <NavLink id='navLinkPetsSearch' className='nav-search' to="/petsSearch">Search</NavLink>
         </nav>
       </>
     );

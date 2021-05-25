@@ -95,4 +95,12 @@ const requireAuth = [
   // both restoreUser and requireAuth will be applied as
   // a pre-middleware to route handlers where needed
 
+  const checkPermissions = (thing, currentUser) => {
+    if (thing.userId !== currentUser) {
+      const err = new Error('Illegal operation.');
+      err.status = 403; // Forbidden
+      throw err;
+    }
+  };
+
   module.exports = {setTokenCookie, restoreUser, requireAuth};

@@ -1,4 +1,6 @@
 // This is my pets route
+const requireAuth = require('../../utils/auth');
+// import {requireAuth} from '../../utils/auth'
 
 // ****** IMPORTANT ******
  // USE these three FOR EVERY ROUTE TO CREATE A ROUTER
