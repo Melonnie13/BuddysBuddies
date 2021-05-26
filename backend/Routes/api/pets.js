@@ -113,6 +113,12 @@ router.post(
   // next error-handling middleware
 );
 
+// ******* CHANGE FOR PETS DELETE *****
+router.delete("/:id", asyncHandler(async function (req, res) {
+  const itemId = await ItemsRepository.deleteItem(req.params.id);
+  return res.json({ itemId });
+}));
+
 //requireAuth for only logged-in users to access this endpoint
 //post and out requests would need validations if users are submitting data
 

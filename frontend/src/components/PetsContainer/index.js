@@ -15,7 +15,7 @@ import './PetsContainer.css';
 const PetsContainer = () => {
     const dispatch = useDispatch();
     const pets = useSelector((state) => Object.values(state.pets));
-    console.log('PetsContainer_components/PetsContainer/index', pets);
+    // console.log('PetsContainer_components/PetsContainer/index', pets);
     //  Object.values(state.pets));
     // console.log('PetsContainer_', pets);
     // Use a 'react hook and cause a side effect
