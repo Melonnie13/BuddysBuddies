@@ -92,7 +92,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
 // Sign up
 router.post(
   //^^ POST/api/users signup route
-  // '/new', ?????
+  '/add',
   validatePetCreate,
   //^^ connects this route to this middleware
 

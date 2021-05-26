@@ -1,3 +1,4 @@
+import {csrfFetch} from './csrf'
 // Define Action Types as Constants
 
 const GET_PETS= 'pets/GET_PETS';
@@ -14,6 +15,11 @@ const getPets = (pets) => ({
     type: GET_PETS,
     pets,
 });
+
+const addPet = (pet) => ({
+    type: ADD_PET,
+    pet
+})
 
 // Define Thunks
 
@@ -44,6 +50,21 @@ export const getPetsRecent = () => async (dispatch) => {
     }
 };
 
+export const addPetNew = (pet) => async (dispatch) => {
+    const res = await fetch('/api/pets/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(pet)
+    });
+
+    if(res.ok){
+        const petAdded = await res.json();
+        dispatch(addPet(petAdded))
+    }
+};
+
 // Define an initial state
 const initialState = {};
 
@@ -60,6 +81,28 @@ const petsReducer = (state = initialState, action) => {
                 ...petsRecent,
                 ...state,
             };
+        case ADD_PET:{
+            if(!state[action.pet.id]){
+                const petAdded = {
+                    ...state,
+                    [action.pet.id]: action.pet
+                };
+                const pets = petAdded.pets.map(id => petAdded[id]);
+                pets.push(action.pet);
+                petAdded.list = (pets);
+                // can I just sort by created_at?
+                return petAdded
+            }
+            return {
+                ...state,
+                [action.pet.id]:{
+                    ...state[action.pet.id],
+                    ...action.pet,
+                }
+            };
+        };
+
+
         default:
             return state;
     }

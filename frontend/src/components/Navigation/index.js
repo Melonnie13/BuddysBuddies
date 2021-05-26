@@ -20,9 +20,9 @@ function Navigation({ isLoaded }){
       <>
         <LoginFormModal className='login-button' />
         <nav id='innerNavWithLogInSignUp' className='navBar'>
-          <button id='recent-pet-btn'>
+          {/* <button id='login-btn'>
           <NavLink id='navLinkLogin' className='nav-login' to="/login">Log In</NavLink>
-          </button>
+          </button> */}
           <button id='recent-pet-btn'>
           <NavLink id='navLinkSignup' className='nav-signup' to="/signup">Sign Up</NavLink>
           </button>

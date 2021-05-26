@@ -1,4 +1,28 @@
 .recentPets{
-    background-color: #a7bbc7;
+    background-color: #faf3f3;
+}
+#recentPetsList{
+    color: #faf3f3;
+    font-size: larger;
 }
 
+.recentPetsbtn{
+    background-color: #da7f8f;
+    color: #faf3f3;
+    font-weight: bold;
+    font-size: 1.5em;
+    width:auto;
+    border-radius: 10px;
+}
+.petsContainerDiv{
+    background-color: #a7bbc7;
+    color: #faf3f3;
+    font-weight: bold;
+    /* display: flex; */
+    /* text-align: center; */
+}
+#recentlyAddedTitle{
+    display: flex;
+    text-align: center;
+    padding: 10px;
+}

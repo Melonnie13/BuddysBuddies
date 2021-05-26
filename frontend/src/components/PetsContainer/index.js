@@ -3,6 +3,8 @@
 
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
+
 
 
 
@@ -16,21 +18,24 @@ const PetsContainer = () => {
     console.log('PetsContainer_components/PetsContainer/index', pets);
     //  Object.values(state.pets));
     // console.log('PetsContainer_', pets);
-
-
     // Use a 'react hook and cause a side effect
     useEffect(() => {
         dispatch(getPetsRecent());
     }, [dispatch]);
 
     return (
-        
-        <div className='petsContainerDiv'> Recently Added Pets
+
+        <div className='petsContainerDiv'><h1 id='recentlyAddedTitle'>Recently Added Pets</h1>
             <ul className='recentPets'>
                 {pets.map(pet =>
-                    <div>
-                        {pet.petName}
-                    </div>)}
+                <button className='recentPetsbtn'>
+                    <Link  to={`/pets/${pet.id}`}>
+                    <div id='recentPetsList' key={pet.id} pet={pet}>
+                        <h3>{pet.petName}</h3>
+                    </div>
+                    </Link>
+                    </button>)}
+                {/* {where do i set the key here? */}
 
             </ul>
             <div>

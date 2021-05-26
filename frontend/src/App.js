@@ -9,6 +9,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import PetsContainer from "./components/PetsContainer";
+import CreatePetForm from "./components/CreatePetForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,9 +34,9 @@ function App() {
           <Route path='/pets/recent'>
             <PetsContainer />
           </Route>
-          {/* <Route path='/newPet'>
+          <Route path='/pets/add'>
             <CreatePetForm />
-          </Route> */}
+          </Route>
         </Switch>
       )}
     </>
