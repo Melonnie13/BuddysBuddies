@@ -30,6 +30,48 @@ const CreatePetForm = () => {
     const [adoptable, setAdoptable] = useState('yes');
     const [single, setSingle] = useState('yes');
 
+    useEffect(() => {
+        dispatch(petActions.addPetNew())
+    }, [dispatch]);
+
+    const onSubmit = async(e) => {
+        e.preventDefault();
+
+        const addedPet = {
+            petName,
+            age,
+            sex,
+            petType,
+            otherPets,
+            temperament,
+            specialCare,
+            tricks,
+            adoptable,
+            single
+        };
+
+        const pet = await dispatch(petActions.addPetNew(pet))
+        if(pet) {
+            history.push(`/pets/${pet.id}`);
+        }
+    }
+
+    return(
+        <div className='create-pet-form-div'>
+        <h2 id='addAPetTitle'> Add a Pet </h2>
+        <form onSubmit={onSubmit}>
+        <input
+        type='petname'/>
+
+        <button type='submit'>
+
+                add pet
+
+        </button>
+        </form>
+        </div>
+    )
+
 
 
 }

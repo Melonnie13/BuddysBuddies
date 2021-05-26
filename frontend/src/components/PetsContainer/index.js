@@ -30,7 +30,7 @@ const PetsContainer = () => {
                 {pets.map(pet =>
                 <button className='recentPetsbtn'>
                     <Link  to={`/pets/${pet.id}`}>
-                    <div id='recentPetsList' key={pet.id} pet={pet}>
+                    <div id='recentPetsList' key={pet.id}>
                         <h3>{pet.petName}</h3>
                     </div>
                     </Link>

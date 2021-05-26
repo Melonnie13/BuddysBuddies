@@ -62,6 +62,7 @@ export const addPetNew = (pet) => async (dispatch) => {
     if(res.ok){
         const petAdded = await res.json();
         dispatch(addPet(petAdded))
+        return petAdded;
     }
 };
 

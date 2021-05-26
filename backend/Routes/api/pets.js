@@ -1,6 +1,7 @@
 // This is my pets route
-const requireAuth = require('../../utils/auth');
+const {requireAuth} = require('../../utils/auth');
 // import {requireAuth} from '../../utils/auth'
+// ^^ this only works in frontend or when I want something to render in the browser
 
 // ****** IMPORTANT ******
  // USE these three FOR EVERY ROUTE TO CREATE A ROUTER
@@ -78,7 +79,7 @@ router.get('/recent', asyncHandler(async(req, res) => {
 // I would send a fetch request to this path
 
 router.get('/:id', asyncHandler(async (req, res) => {
-  const pet = await Pet.findByPk(re.params.id, {
+  const pet = await Pet.findByPk(req.params.id, {
     include: {
       model: Couch,
       // include: //maybe userId??
@@ -107,7 +108,7 @@ router.post(
     });
     return pet;
   }),
-  // if the creation of a user is unsuccessful then
+  // if the creation of a pet is unsuccessful then
   // a Sequelize Validation error will be passed onto the
   // next error-handling middleware
 );
