@@ -24,7 +24,7 @@ const addPet = (pet) => ({
 // Define Thunks
 
 export const getPetsAll = () => async (dispatch) => {
-    const res = await fetch('/api/pets');
+    const res = await csrfFetch('/api/pets');
     // do I want a csrfFetch here?
     // csrf attack relies on a form to execute, so
     // don't need to worry about it for a fetch call
@@ -40,7 +40,7 @@ export const getPetsAll = () => async (dispatch) => {
 
 export const getPetsRecent = () => async (dispatch) => {
 
-    const res = await fetch('/api/pets/recent');
+    const res = await csrfFetch('/api/pets/recent');
 
     if(res.ok){
 
@@ -51,7 +51,7 @@ export const getPetsRecent = () => async (dispatch) => {
 };
 
 export const addPetNew = (pet) => async (dispatch) => {
-    const res = await fetch('/api/pets/add', {
+    const res = await csrfFetch('/api/pets/add', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

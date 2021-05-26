@@ -5,11 +5,11 @@ import {useHistory} from 'react-router';
 import * as petActions from '../../store/pets';
 import './CreatePetForm.css';
 
-const TYPES = [
-    'dog',
-    'cat',
-    'guinea pig'
-];
+// const TYPES = [
+//     'dog',
+//     'cat',
+//     'guinea pig'
+// ];
 
 const CreatePetForm = () => {
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const CreatePetForm = () => {
 
 
     const [petName, setPetName] = useState('');
-    const [age, setAge] = useState('');
+    const [age, setAge] = useState(null);
     const [sex, setSex] = useState('');
     const [petType, setPetType] = useState('');
     // ^^ what should I use here???
@@ -26,18 +26,19 @@ const CreatePetForm = () => {
     const [temperament, setTemperament] = useState('');
     const [specialCare, setSpecialCare] = useState('');
     // could be a button and onChange, it could open an input
-    const [tricks, setTricks] = useState('yes');
-    const [adoptable, setAdoptable] = useState('yes');
-    const [single, setSingle] = useState('yes');
+    const [tricks, setTricks] = useState('');
+    const [adoptable, setAdoptable] = useState(true);
+    const [single, setSingle] = useState(false);
     const [inputValue, setInputValue] = useState('')
 
-    useEffect(() => {
-        dispatch(petActions.addPetNew())
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(petActions.addPetNew())
+    // }, [dispatch]);
+    //^^ good for when I want to get information from back end and render on component
 
     // cant call dispatch inside useeffect for delete, need an async event handler
 
-    const onSubmit = async(e) => {
+    const createPet = async(e) => {
         e.preventDefault();
 
         const addedPet = {
@@ -57,6 +58,8 @@ const CreatePetForm = () => {
         if(pet) {
             history.push(`/pets/${pet.id}`);
         }
+        // I want the dispatch inside here instead of the useEffect because I need the addedPet first.
+        // createPet is my onSubmit.
     }
 
     // if onSubmit is successful, set all variables back to initial state value
@@ -66,7 +69,7 @@ const CreatePetForm = () => {
         <h2 id='addPetTitle'> Add a buddy </h2>
         <h4 id='addPetDisclaimer-emergency'> Please seek immediate veterinary care for emergencies and prior to posting.</h4>
         <h4 id='addPetDisclaimer-longterm'> Pets in need of long-term, non-emergency veterinary care may be added.</h4>
-        <form className='createAPetForm' onSubmit={onSubmit}>
+        <form className='createAPetForm' onSubmit={createPet}>
             <div id='createPetForm-petName-div'>
                 <label id='createPetForm-label'>
                     Pet Name
@@ -88,12 +91,12 @@ const CreatePetForm = () => {
                     required
                     >
                         <option value={inputValue}>Please Select an Option</option>
-                        <option value={age}>Unsure</option>
-                        <option value={age}>1 - 4</option>
-                        <option value={age}>5 - 9</option>
-                        <option value={age}>10 - 14</option>
-                        <option value={age}>15 - 19</option>
-                        <option value={age}>20+</option>
+                        <option value={0}>Unsure</option>
+                        <option value={1}>1 - 4</option>
+                        <option value={2}>5 - 9</option>
+                        <option value={3}>10 - 14</option>
+                        <option value={4}>15 - 19</option>
+                        <option value={5}>20+</option>
                     </select>
                 </label>
             </div>
@@ -200,20 +203,20 @@ const CreatePetForm = () => {
                         Yes
                         <input
                             type='radio'
-                            value='yes'
+                            value={true}
                             name='adoptable'
-                            checked={adoptable === 'yes'}
-                            onChange={(e) => setAdoptable('yes')}
+                            checked={adoptable === true}
+                            onChange={(e) => setAdoptable(true)}
                         />
                     </label>
                     <label id='createPetForm-label'>
                         No
                         <input
                             type='radio'
-                            value='no'
+                            value={false}
                             name='adoptable'
-                            checked={adoptable === 'no'}
-                            onChange={(e) => setAdoptable('no')}
+                            checked={adoptable === false}
+                            onChange={(e) => setAdoptable(false)}
                         />
                     </label>
                 </span>
@@ -224,20 +227,20 @@ const CreatePetForm = () => {
                         Yes
                         <input
                             type='radio'
-                            value='yes'
+                            value={true}
                             name='single'
-                            checked={single === 'yes'}
-                            onChange={(e) => setSingle('yes')}
+                            checked={single === true}
+                            onChange={(e) => setSingle(true)}
                         />
                     </label>
                     <label id='createPetForm-label'>
                         No
                         <input
                             type='radio'
-                            value='no'
+                            value={false}
                             name='single'
-                            checked={single === 'no'}
-                            onChange={(e) => setSingle('no')}
+                            checked={single === false}
+                            onChange={(e) => setSingle(false)}
                         />
                     </label>
                 </span>

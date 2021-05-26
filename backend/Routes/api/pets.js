@@ -33,32 +33,31 @@ const {requireAuth} = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
-const validatePetCreate = [
-  check('petName')
-    .exists({ checkFalsy: true })
-    .isLength({min: 1})
-    .withMessage('Please provide a pet name.'),
-  check('age')
-    .exists({ checkFalsy: true })
-    .isLength({ min: 1 })
-    .withMessage('Please provide an age for the pet.'),
-  check('sex')
-    .exists({checkFalsy: true})
-    .withMessage('Please choose the sex of the pet'),
-  check('petType')
-    .exists({ checkFalsy: true })
-    .isLength({ min: 1 })
-    .withMessage('Please enter a pet type.'),
-  check('otherPets')
-    .exists({checkFalsy: true})
-    .isLength({min: 2})
-    .withMessage('Please let us know if this pet gets along with other pets and which types.'),
-  check('temperament')
-    .exists({checkFalsy: true})
-    .isLength({min:10, max: 200})
-    .withMessage('Answer must be more than 10 and less than 200 characters.'),
-  handleValidationErrors,
-];
+// const validatePetCreate = [
+//   check('petName')
+//     .exists({ checkFalsy: true })
+//     .isLength({min: 1})
+//     .withMessage('Please provide a pet name.'),
+//   check('age')
+//     .exists({ checkFalsy: true })
+//     .isLength({ min: 1 })
+//     .withMessage('Please provide an age for the pet.'),
+//   // check('sex')
+//   //   .exists({checkFalsy: true})
+//   //   .withMessage('Please choose the sex of the pet'),
+//   // check('petType')
+//   //   .exists({ checkFalsy: true })
+//   //   .isLength({ min: 1 })
+//   //   .withMessage('Please enter a pet type.'),
+//   // check('otherPets')
+//   //   .exists({checkFalsy: true})
+//   //   .withMessage('Please let us know if this pet gets along with other pets and which types.'),
+//   // check('temperament')
+//   //   .exists({checkFalsy: true})
+//   //   .isLength({min:10, max: 200})
+//   //   .withMessage('Answer must be more than 10 and less than 200 characters.'),
+//   handleValidationErrors,
+// ];
 
 router.get('/', asyncHandler(async(req, res) => {
   const pets = await Pet.findAll();
@@ -92,9 +91,9 @@ router.get('/:id', asyncHandler(async (req, res) => {
 
 // Sign up
 router.post(
-  //^^ POST/api/users signup route
+  //^^ POST/api/add pets route
   '/add',
-  validatePetCreate,
+  // validatePetCreate,
   //^^ connects this route to this middleware
 
   asyncHandler(async (req, res) => {

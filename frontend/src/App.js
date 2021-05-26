@@ -25,8 +25,6 @@ function App() {
         <Switch>
           <Route path="/login">
             <LoginFormModal />
-            {/* ^^ can i just add css classes here?
-              This would assign the styling  */}
           </Route>
           <Route path="/signup">
             <SignupFormPage />
