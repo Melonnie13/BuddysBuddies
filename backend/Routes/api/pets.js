@@ -105,7 +105,7 @@ router.post(
     const pet = await Pet.create({
       petName, age, sex, petType, otherPets, temperament, specialCare, tricks, adoptable, single
     });
-    return pet;
+    return res.json({pet});
   }),
   // if the creation of a pet is unsuccessful then
   // a Sequelize Validation error will be passed onto the

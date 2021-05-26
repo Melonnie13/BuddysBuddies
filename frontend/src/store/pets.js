@@ -61,8 +61,10 @@ export const addPetNew = (pet) => async (dispatch) => {
 
     if(res.ok){
         const petAdded = await res.json();
-        dispatch(addPet(petAdded))
-        return petAdded;
+        dispatch(addPet(petAdded.pet))
+        //^^ res.json is an object with the pet object nested inside as a key;
+        // this petAdded.pet, gives me the pet object at that pet key
+        return petAdded.pet;
     }
 };
 
@@ -78,30 +80,27 @@ const petsReducer = (state = initialState, action) => {
             action.pets.forEach((pet) => {
                 petsRecent[pet.id] = pet
             });
-            return {
-                ...petsRecent,
-                ...state,
-            };
+            return petsRecent;
         case ADD_PET:{
-            if(!state[action.pet.id]){
                 const petAdded = {
                     ...state,
                     [action.pet.id]: action.pet
                 };
-                const pets = petAdded.pets.map(id => petAdded[id]);
-                pets.push(action.pet);
-                petAdded.list = (pets);
+                // const pets = petAdded.pets.map(id => petAdded[id]);
+                // ^^ this keys into my petsAdded abd exoectubg it to be an array
+                // pets.push(action.pet);
+                // petAdded.list = (pets);
                 // can I just sort by created_at?
                 return petAdded
             }
-            return {
-                ...state,
-                [action.pet.id]:{
-                    ...state[action.pet.id],
-                    ...action.pet,
-                }
-            };
-        };
+            // return {
+            //     ...state,
+            //     [action.pet.id]:{
+            //         ...state[action.pet.id],
+            //         ...action.pet,
+            //     }
+        //     };
+        // };
 
 
         default:

@@ -56,7 +56,7 @@ const CreatePetForm = () => {
 
         const pet = await dispatch(petActions.addPetNew(addedPet))
         if(pet) {
-            history.push(`/pets/${pet.id}`);
+           return history.push(`/pets/${pet.id}`);
         }
         // I want the dispatch inside here instead of the useEffect because I need the addedPet first.
         // createPet is my onSubmit.
