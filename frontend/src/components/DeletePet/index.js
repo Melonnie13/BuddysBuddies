@@ -15,13 +15,16 @@ const DeletePet = () => {
 
         const deletedPet = await dispatch(petActions.deleteAPet(id));
         history.push('/')
+
+        // how do I use this exactly??
     }
 
     return (
         <div>
             <form onSubmit={deletePetEvent}>
                 <div>I am here</div>
-                <button type='submit'>Delete a pet</button>
+
+                <button className='deleteBtn' type='submit'>Delete a pet</button>
             </form>
         </div>
     )

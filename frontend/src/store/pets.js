@@ -4,9 +4,10 @@ import {csrfFetch} from './csrf'
 const GET_PETS= 'pets/GET_PETS';
 const GET_PETS_TYPES= 'pets/GET_PETS_TYPES';
 const ADD_PET= 'pets/ADD_PET';
-const GET_ONE='pets/GET_ONE';
+// const GET_ONE='pets/GET_ONE';
 const UPDATE_ONE='pets/UPDATE_ONE';
 const DELETE_ONE='pets/DELETE_ONE';
+const GET_ONE='pets/GET_ONE';
 
 // Define action creators
 
@@ -25,6 +26,14 @@ const deletePet = (id) => ({
     type: DELETE_ONE,
     id
 })
+const updatePet = (id) => ({
+    type: UPDATE_ONE,
+    id
+})
+const getPet = (id) => ({
+    type: GET_ONE,
+    id
+})
 
 // Define Thunks
 
@@ -35,14 +44,11 @@ export const getPetsAll = () => async (dispatch) => {
     // don't need to worry about it for a fetch call
     const pets = await res.json();
     console.log('getPets_Store/pets.js', pets);
-
-
     // would have some sort of error checking
     if (res.ok){
         dispatch(getPets(pets));
     }
 };
-
 export const getPetsRecent = () => async (dispatch) => {
 
     const res = await csrfFetch('/api/pets/recent');
@@ -54,7 +60,6 @@ export const getPetsRecent = () => async (dispatch) => {
         dispatch(getPets(pets));
     }
 };
-
 export const addPetNew = (pet) => async (dispatch) => {
     const res = await csrfFetch('/api/pets/add', {
         method: 'POST',
@@ -72,7 +77,6 @@ export const addPetNew = (pet) => async (dispatch) => {
         return petAdded.pet;
     }
 };
-
 export const deleteAPet = (id) => async (dispatch) => {
     const res = await csrfFetch(`/api/pets/${id}`, {
         method: 'DELETE',
@@ -82,8 +86,27 @@ export const deleteAPet = (id) => async (dispatch) => {
         dispatch(deletePet(pet.id))
 
     }
+};
+export const updateAPet = (id) => async (dispatch) => {
+    const res = await csrfFetch(`/api/pets/update/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(id)
+    });
 
-}
+    if (res.ok) {
+        const updatedPet = await res.json();
+        dispatch(updatePet(updatedPet.id))
+    }
+};
+export const getOnePet = (id) => async (dispatch) => {
+    const res = await csrfFetch(`/api/pets/${id}`);
+
+    if (res.ok) {
+        const pet = await res.json();
+        dispatch(getPet(pet.id))
+    }
+};
+
 
 // Define an initial state
 const initialState = {};
@@ -108,13 +131,27 @@ const petsReducer = (state = initialState, action) => {
                 // pets.push(action.pet);
                 // petAdded.list = (pets);
                 // can I just sort by created_at?
-                return petAdded
+                return petAdded;
             };
             case DELETE_ONE:{
                 const petDeleted = {...state};
                 delete petDeleted[action.id];
                 return petDeleted;
             }
+        case UPDATE_ONE: {
+            const petUpdated = {
+                ...state,
+            [action.updatedPet.id]: action.updatedPet
+        };
+        return petUpdated;
+        }
+        case GET_ONE:{
+            const onePet = {
+                ...state,
+                [action.pet.id]: action.pet
+            }
+        }
+
 
 
 

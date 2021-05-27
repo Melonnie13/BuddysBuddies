@@ -42,10 +42,13 @@ function Navigation({ isLoaded }){
           </button>
           {/* want to put this here <img ^^ className='buddy-pic' src={require('../../Images/buddyPic.png')} /> */}
           <button id='recent-pet-btn' >
-          <NavLink id='navLinkPetsRecent' className='nav-recent' to='/pets/recent'>Recently Added Pets</NavLink>
+          <NavLink id='navLinkPetsRecent' className='nav-recent' to='/pets/recent'>Newest Buddies</NavLink>
           </button>
           <button id='pet-search-btn'>
           <NavLink id='navLinkPetSearch' className='nav-search' to="/pets/search">Search</NavLink>
+          </button>
+          <button id='pet-add-btn'>
+          <NavLink id='navLinkPetAdd' className='nav-search' to="/pets/add">Add a Pet</NavLink>
           </button>
           {isLoaded && sessionLinks}
 

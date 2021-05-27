@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import './Home.css';
 import {getPetsAll} from '../../store/pets';
+import * as sessionActions from '../../store/session';
 
 
 const Home = () => {
@@ -12,6 +13,14 @@ const Home = () => {
     //  Object.values(state.pets));
     // console.log('PetsContainer_', pets);
     // Use a 'react hook and cause a side effect
+
+    // const login = () => {
+    //     dispatch(sessionActions.login({
+    //         credential: 'demo@demo.com',
+    //         password: 'demoPassword'
+    //     }));
+    // };
+
     useEffect(() => {
         dispatch(getPetsAll());
     }, [dispatch]);

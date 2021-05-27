@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Couch.associate = function(models) {
     // associations can be defined here
+    Couch.belongsTo(models.User, {foreignKey: 'userId'})
   };
   return Couch;
 };
