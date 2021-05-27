@@ -5,7 +5,8 @@ const GET_PETS= 'pets/GET_PETS';
 const GET_PETS_TYPES= 'pets/GET_PETS_TYPES';
 const ADD_PET= 'pets/ADD_PET';
 const GET_ONE='pets/GET_ONE';
-const UPDATE_ONE='PETS/UPDATE_ONE';
+const UPDATE_ONE='pets/UPDATE_ONE';
+const DELETE_ONE='pets/DELETE_ONE';
 
 // Define action creators
 
@@ -19,6 +20,10 @@ const getPets = (pets) => ({
 const addPet = (pet) => ({
     type: ADD_PET,
     pet
+})
+const deletePet = (id) => ({
+    type: DELETE_ONE,
+    id
 })
 
 // Define Thunks
@@ -68,6 +73,18 @@ export const addPetNew = (pet) => async (dispatch) => {
     }
 };
 
+export const deleteAPet = (id) => async (dispatch) => {
+    const res = await csrfFetch(`/api/pets/${id}`, {
+        method: 'DELETE',
+    });
+    if(res.ok){
+        const pet = await res.json();
+        dispatch(deletePet(pet.id))
+
+    }
+
+}
+
 // Define an initial state
 const initialState = {};
 
@@ -92,15 +109,13 @@ const petsReducer = (state = initialState, action) => {
                 // petAdded.list = (pets);
                 // can I just sort by created_at?
                 return petAdded
+            };
+            case DELETE_ONE:{
+                const petDeleted = {...state};
+                delete petDeleted[action.id];
+                return petDeleted;
             }
-            // return {
-            //     ...state,
-            //     [action.pet.id]:{
-            //         ...state[action.pet.id],
-            //         ...action.pet,
-            //     }
-        //     };
-        // };
+
 
 
         default:

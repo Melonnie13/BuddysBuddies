@@ -103,85 +103,66 @@ const CreatePetForm = () => {
             <div id='createPetForm-sex-div'>
                 <label id='createPetForm-label'>
                     Sex of Pet
-                    <select id='createPetForm-sex-select'
-                    onChange={(e) => setSex(e.target.value)}
-                    required
-                    >
-                        <option value={inputValue}>Please Select an Option</option>
-                        <option value={sex}>Unsure</option>
-                        <option value={sex}>Female</option>
-                        <option value={sex}>Male</option>
-                        <option value={sex}>Don't Even Know Where I Would Look</option>
-                    </select>
+                    <input
+                        type='text'
+                        name='sex'
+                        className='createPetForm-input'
+                        value={sex}
+                        onChange={(e) => setSex(e.target.value)}
+                        required
+                    />
                 </label>
             </div>
             <div id='createPetForm-petType-div'>
                 <label id='createPetForm-label'>
                     Type of Pet
-                    <select id='createPetForm-type-select'
-                    onChange={(e) => setPetType(e.target.value)}
-                    required
-                    >
-                        <option value={inputValue}>Please Select an Option</option>
-                        <option value={petType}>I'm not sure, yet</option>
-                        <option value={petType}>Dog</option>
-                        <option value={petType}>Cat</option>
-                        <option value={petType}>SMALL ANIMAL</option>
-                        <option value={petType}>LARGE ANIMAL</option>
-
-                    </select>
+                    <input
+                        type='text'
+                        name='petType'
+                        className='createPetForm-input'
+                        value={petType}
+                        onChange={(e) => setPetType(e.target.value)}
+                        required
+                    />
                 </label>
             </div>
             <div id='createPetForm-otherPets-div'>
                 <label id='createPetForm-label'>
-                    Does this Pet Get Along With Other Pets?
-                    <select id='createPetForm-type-select'
-                    onChange={(e) => setOtherPets(e.target.value)}
-                    required
-                    >
-                        <option value={inputValue}>Please Select an Option</option>
-                        <option value={otherPets}>I'm not sure, yet</option>
-                        <option value={otherPets}>Yes, all pets</option>
-                        <option value={otherPets}>Yes, dogs only</option>
-                        <option value={otherPets}>Yes, cats only</option>
-                        <option value={otherPets}>Yes, cats and dogs</option>
-                        <option value={otherPets}>Yes, but no birds</option>
-                        <option value={otherPets}>Yes, but no small animals</option>
-                        <option value={otherPets}>small animals ONLY</option>
-                        <option value={otherPets}>NO OTHER PETS</option>
-                    </select>
+                    Does this pet get along with other pets?
+                    <input
+                        type='text'
+                        name='otherPets'
+                        className='createPetForm-input'
+                        value={otherPets}
+                        onChange={(e) => setOtherPets(e.target.value)}
+                        required
+                    />
                 </label>
             </div>
             <div id='createPetForm-temperament-div'>
                 <label id='createPetForm-label'>
-                    Pet Personality
-                    <select id='createPetForm-type-select'
-                    onChange={(e) => setTemperament(e.target.value)}
-                    required
-                    >
-                        <option value={inputValue}>Please Select an Option</option>
-                        <option value={temperament}>I'm not sure, yet</option>
-                        <option value={temperament}>Timid - aggressive, needs Special Care</option>
-                        <option value={temperament}>Timid - calm, needs Special Care</option>
-                        <option value={temperament}>Friendly - kid friendly</option>
-                        <option value={temperament}>Friendly - not kid friendly</option>
-                    </select>
+                    Pet Personality - calm, aggressive, shy, etc...
+                    <input
+                        type='text'
+                        name='temperament'
+                        className='createPetForm-input'
+                        value={temperament}
+                        onChange={(e) => setTemperament(e.target.value)}
+                        required
+                    />
                 </label>
             </div>
             <div id='createPetForm-specialCare-div'>
                 <label id='createPetForm-label'>
-                    Needs Special Care?
-                    <select id='createPetForm-type-select'
-                    onChange={(e) => setSpecialCare(e.target.value)}
-                    required
-                    >
-                        <option value={inputValue}>Please Select an Option</option>
-                        <option value={specialCare}>I'm not sure, yet</option>
-                        <option value={specialCare}>Yes - Timid</option>
-                        <option value={specialCare}>Yes - Needs Ongoing Vet Care</option>
-                        <option value={specialCare}>No - has been checked by a qualified vet</option>
-                        <option value={specialCare}>No - but needs regular vet checkup</option>
-                    </select>
+                    Does this pet require special care?
+                    <input
+                        type='text'
+                        name='specialCare'
+                        className='createPetForm-input'
+                        value={specialCare}
+                        onChange={(e) => setSpecialCare(e.target.value)}
+                        required
+                    />
                 </label>
             </div>
             <div id='createPetForm-tricks-div'>

@@ -33,31 +33,29 @@ const {requireAuth} = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
-// const validatePetCreate = [
-//   check('petName')
-//     .exists({ checkFalsy: true })
-//     .isLength({min: 1})
-//     .withMessage('Please provide a pet name.'),
-//   check('age')
-//     .exists({ checkFalsy: true })
-//     .isLength({ min: 1 })
-//     .withMessage('Please provide an age for the pet.'),
-//   // check('sex')
-//   //   .exists({checkFalsy: true})
-//   //   .withMessage('Please choose the sex of the pet'),
-//   // check('petType')
-//   //   .exists({ checkFalsy: true })
-//   //   .isLength({ min: 1 })
-//   //   .withMessage('Please enter a pet type.'),
-//   // check('otherPets')
-//   //   .exists({checkFalsy: true})
-//   //   .withMessage('Please let us know if this pet gets along with other pets and which types.'),
-//   // check('temperament')
-//   //   .exists({checkFalsy: true})
-//   //   .isLength({min:10, max: 200})
-//   //   .withMessage('Answer must be more than 10 and less than 200 characters.'),
-//   handleValidationErrors,
-// ];
+const validatePetCreate = [
+  check('petName')
+    .exists({ checkFalsy: true })
+    .isLength({min: 1})
+    .withMessage('Please provide a pet name.'),
+  check('age')
+    .exists({ checkFalsy: true })
+    .isLength({ min: 1 })
+    .withMessage('Please provide an age for the pet.'),
+  check('sex')
+    .exists({checkFalsy: true})
+    .withMessage('Please choose the sex of the pet'),
+  check('petType')
+    .exists({ checkFalsy: true })
+    .withMessage('Please enter a pet type.'),
+  check('otherPets')
+    .exists({checkFalsy: true})
+    .withMessage('Please let us know if this pet gets along with other pets and which types.'),
+  check('temperament')
+    .exists({checkFalsy: true})
+    .withMessage('Answer must be more than 10 and less than 200 characters.'),
+  handleValidationErrors,
+];
 
 router.get('/', asyncHandler(async(req, res) => {
   const pets = await Pet.findAll();
@@ -93,7 +91,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
 router.post(
   //^^ POST/api/add pets route
   '/add',
-  // validatePetCreate,
+  validatePetCreate,
   //^^ connects this route to this middleware
 
   asyncHandler(async (req, res) => {
@@ -111,11 +109,13 @@ router.post(
   // a Sequelize Validation error will be passed onto the
   // next error-handling middleware
 );
-
-// ******* CHANGE FOR PETS DELETE *****
-router.delete("/:id", asyncHandler(async function (req, res) {
-  const itemId = await ItemsRepository.deleteItem(req.params.id);
-  return res.json({ itemId });
+router.delete("/:id", asyncHandler(async (req, res) => {
+  petId = req.params.id
+  const deletedPet = await Pet.findByPk(petId);
+  if (deletedPet) {
+    await deletedPet.destroy();
+    return res.json(deletedPet);
+  }
 }));
 
 //requireAuth for only logged-in users to access this endpoint
