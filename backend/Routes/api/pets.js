@@ -109,14 +109,17 @@ router.post(
   // a Sequelize Validation error will be passed onto the
   // next error-handling middleware
 );
-router.delete("/:id", asyncHandler(async (req, res) => {
-  petId = req.params.id
+router.delete('/:id', requireAuth, asyncHandler(async (req, res) => {
+  const petId = req.params.id;
   const deletedPet = await Pet.findByPk(petId);
   if (deletedPet) {
     await deletedPet.destroy();
     return res.json(deletedPet);
   }
 }));
+router.put('/edit/:id', asyncHandler(async (req, res) => {
+  petId = req.params.id;
+}))
 
 //requireAuth for only logged-in users to access this endpoint
 //post and out requests would need validations if users are submitting data

@@ -1,15 +1,11 @@
-// the component that will render recentPets information
-// Import hooks from 'react-redux'
-
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
+import './Home.css';
+import {getPetsAll} from '../../store/pets';
 
-import {getPetsRecent} from '../../store/pets';
-// ^^ can I render one component for both??
-import './PetsContainer.css';
 
-const PetsContainer = () => {
+const Home = () => {
     const dispatch = useDispatch();
     const pets = useSelector((state) => Object.values(state.pets));
     // console.log('PetsContainer_components/PetsContainer/index', pets);
@@ -17,17 +13,17 @@ const PetsContainer = () => {
     // console.log('PetsContainer_', pets);
     // Use a 'react hook and cause a side effect
     useEffect(() => {
-        dispatch(getPetsRecent());
+        dispatch(getPetsAll());
     }, [dispatch]);
 
     return (
 
-        <div className='petsContainerDiv'><h1 id='recentlyAddedTitle'>Recently Added Pets</h1>
-            <ul className='recentPets'>
+        <div className='home-div'><h1 id='homeTitle'>Get to Know Buddy and his Buddies</h1>
+            <ul className='homePage'>
                 {pets.map(pet =>
-                <button className='recentPetsbtn'>
+                <button className='homebtn'>
                     <Link  to={`/pets/${pet.id}`}>
-                    <div id='recentPetsList' key={pet.id}>
+                    <div id='homeList' key={pet.id}>
                         <h3>{pet.petName}</h3>
                     </div>
                     </Link>
@@ -63,12 +59,8 @@ const PetsContainer = () => {
                 {/* {where do i set the key here? */}
 
             </ul>
-            <div>
-
-            </div>
-
         </div>
     )
 }
 
-export default PetsContainer
+export default Home;

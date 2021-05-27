@@ -11,6 +11,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import PetsContainer from "./components/PetsContainer";
 import CreatePetForm from "./components/CreatePetForm";
+import Home from "./components/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route path='/pets/:id'>
             <DeletePet />
+          </Route>
+          <Route path='/'>
+            <Home />
           </Route>
         </Switch>
       )}
