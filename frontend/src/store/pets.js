@@ -26,13 +26,13 @@ const deletePet = (id) => ({
     type: DELETE_ONE,
     id
 })
-const updatePet = (id) => ({
+const updatePet = (pet) => ({
     type: UPDATE_ONE,
-    id
+    pet
 })
-const getPet = (id) => ({
+const getPet = (pet) => ({
     type: GET_ONE,
-    id
+    pet
 })
 
 // Define Thunks
@@ -43,7 +43,7 @@ export const getPetsAll = () => async (dispatch) => {
     // csrf attack relies on a form to execute, so
     // don't need to worry about it for a fetch call
     const pets = await res.json();
-    console.log('getPets_Store/pets.js', pets);
+    // console.log('getPets_Store/pets.js', pets);
     // would have some sort of error checking
     if (res.ok){
         dispatch(getPets(pets));
@@ -78,7 +78,7 @@ export const addPetNew = (pet) => async (dispatch) => {
     }
 };
 export const deleteAPet = (id) => async (dispatch) => {
-    const res = await csrfFetch(`/api/pets/${id}`, {
+    const res = await csrfFetch(`/api/pets/delete/${id}`, {
         method: 'DELETE',
     });
     if(res.ok){
@@ -87,23 +87,26 @@ export const deleteAPet = (id) => async (dispatch) => {
 
     }
 };
-export const updateAPet = (id) => async (dispatch) => {
-    const res = await csrfFetch(`/api/pets/update/${id}`, {
+export const updateAPet = (pet) => async (dispatch) => {
+    const res = await csrfFetch(`/api/pets/update/${pet.id}`, {
         method: 'PUT',
-        body: JSON.stringify(id)
+        body: JSON.stringify(pet)
     });
 
     if (res.ok) {
         const updatedPet = await res.json();
-        dispatch(updatePet(updatedPet.id))
+        dispatch(updatePet(updatedPet))
+        console.log('store update thunk', updatedPet);
     }
 };
 export const getOnePet = (id) => async (dispatch) => {
     const res = await csrfFetch(`/api/pets/${id}`);
+    console.log('thunk', res)
 
     if (res.ok) {
         const pet = await res.json();
-        dispatch(getPet(pet.id))
+        console.log('getOnePetthunk', pet)
+        dispatch(getPet(pet))
     }
 };
 
@@ -133,24 +136,25 @@ const petsReducer = (state = initialState, action) => {
                 // can I just sort by created_at?
                 return petAdded;
             };
-            case DELETE_ONE:{
-                const petDeleted = {...state};
-                delete petDeleted[action.id];
-                return petDeleted;
+        case DELETE_ONE:{
+            const petDeleted = {...state};
+            delete petDeleted[action.id];
+            return petDeleted;
             }
         case UPDATE_ONE: {
             const petUpdated = {
                 ...state,
             [action.updatedPet.id]: action.updatedPet
-        };
-        return petUpdated;
-        }
+            };
+            return petUpdated;
+            }
         case GET_ONE:{
             const onePet = {
                 ...state,
                 [action.pet.id]: action.pet
             }
-        }
+            return onePet;
+            }
 
 
 

@@ -22,7 +22,7 @@ const PetsContainer = () => {
 
     return (
 
-        <div className='petsContainerDiv'><h1 id='recentlyAddedTitle'>Recently Added Pets</h1>
+        <div className='petsContainerDiv'><h1 id='recentlyAddedTitle'>Newest Buddies</h1>
             <ul className='recentPets'>
                 {pets.map(pet =>
                 <button className='recentPetsbtn'>

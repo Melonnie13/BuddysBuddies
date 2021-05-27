@@ -5,6 +5,9 @@ import { Route, Switch } from "react-router-dom";
 import LoginFormModal from "./components/LoginFormModal/LoginForm";
 import SignupFormPage from "./components/SignupFormPage";
 import DeletePet from './components/DeletePet';
+import UpdatePet from './components/UpdatePet';
+import PetPage from './components/PetPage';
+// import CurrentCouch from './components/CurrentCouch;'
 // import CreateCouchForm from './components/CreateCouchForm';
 // import CreatePetForm from './components/CreatePetForm';
 import * as sessionActions from "./store/session";
@@ -38,10 +41,14 @@ function App() {
             <CreatePetForm />
           </Route>
           <Route path='/pets/:id'>
-            <DeletePet />
+            {/* <CurrentCouch/> */}
+            <PetPage/>
           </Route>
           <Route path='/'>
             <Home />
+          </Route>
+          <Route path='/pets/search'>
+
           </Route>
         </Switch>
       )}

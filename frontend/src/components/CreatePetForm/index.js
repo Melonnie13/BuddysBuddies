@@ -29,7 +29,7 @@ const CreatePetForm = () => {
     const [tricks, setTricks] = useState('');
     const [adoptable, setAdoptable] = useState(true);
     const [single, setSingle] = useState(false);
-    const [inputValue, setInputValue] = useState('')
+    const [inputValue, setInputValue] = useState('');
 
     // useEffect(() => {
     //     dispatch(petActions.addPetNew())
@@ -41,7 +41,7 @@ const CreatePetForm = () => {
     const createPet = async(e) => {
         e.preventDefault();
 
-        const addedPet = {
+        const pet = {
             petName,
             age,
             sex,
@@ -54,9 +54,9 @@ const CreatePetForm = () => {
             single
         };
 
-        const pet = await dispatch(petActions.addPetNew(addedPet))
-        if(pet) {
-           return history.push(`/pets/${pet.id}`);
+        const addedPet = await dispatch(petActions.addPetNew(pet))
+        if(addedPet) {
+           return history.push(`/pets/${addedPet.id}`);
         }
         // I want the dispatch inside here instead of the useEffect because I need the addedPet first.
         // createPet is my onSubmit.

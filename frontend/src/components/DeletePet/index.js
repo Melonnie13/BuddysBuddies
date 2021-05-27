@@ -21,11 +21,7 @@ const DeletePet = () => {
 
     return (
         <div>
-            <form onSubmit={deletePetEvent}>
-                <div>I am here</div>
-
-                <button className='deleteBtn' type='submit'>Delete a pet</button>
-            </form>
+            <button onClick={deletePetEvent} className='deleteBtn' type='submit'>Delete Pet</button>
         </div>
     )
 

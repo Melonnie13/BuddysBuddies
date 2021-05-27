@@ -44,9 +44,9 @@ function Navigation({ isLoaded }){
           <button id='recent-pet-btn' >
           <NavLink id='navLinkPetsRecent' className='nav-recent' to='/pets/recent'>Newest Buddies</NavLink>
           </button>
-          <button id='pet-search-btn'>
+          {/* <button id='pet-search-btn'>
           <NavLink id='navLinkPetSearch' className='nav-search' to="/pets/search">Search</NavLink>
-          </button>
+          </button> */}
           <button id='pet-add-btn'>
           <NavLink id='navLinkPetAdd' className='nav-search' to="/pets/add">Add a Pet</NavLink>
           </button>
