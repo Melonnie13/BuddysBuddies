@@ -140,7 +140,7 @@ router.delete('/delete/:id', requireAuth, asyncHandler(async (req, res) => {
     return res.json(deletedPet);
   }
 }));
-router.put('/update/:id', asyncHandler(async (req, res) => {
+router.put('/update/:id', requireAuth, asyncHandler(async (req, res) => {
   const petId = req.params.id;
   const { petName, age, sex, petType, otherPets, temperament, specialCare, tricks, adoptable, single } = req.body;
   const updatedPet = await Pet.findByPk(petId);

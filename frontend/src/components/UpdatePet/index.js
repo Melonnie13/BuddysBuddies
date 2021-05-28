@@ -227,7 +227,7 @@ const UpdatePet = () => {
                         </label>
                     </span>
                     </div>
-                    <button type="submit">Save Changes</button>
+                    <button id='updatePetSaveBtn' type="submit">Save Changes</button>
                 </form>
                 </>
             }
