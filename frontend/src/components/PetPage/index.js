@@ -32,8 +32,7 @@ const PetPage = () => {
 
         <div>
             <div id='deleteUpdateComponents'>
-                <h1>this is the individual pet page component</h1>
-                <div> {pet.petName} </div>
+                <h1>{pet.petName}</h1>
                 <div> {pet.age} </div>
                 <div> {pet.sex} </div>
                 <div> {pet.petType} </div>
@@ -43,11 +42,6 @@ const PetPage = () => {
                 <div> {pet.tricks} </div>
                 <div> {pet.adoptable} </div>
                 <div> {pet.single} </div>
-                {/* <div> where is this</div> */ }
-
-                {/* <div>{onePet.petName}</div> */}
-
-
                 <UpdatePet/>
                 <DeletePet/>
             {/* could generate a list of MyPets if I wanted at a button like this */}

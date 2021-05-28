@@ -62,7 +62,7 @@ const UpdatePet = () => {
 
   return (
     <div className="update-pet-form-div">
-      <button className="updateBtn" onClick={() => setFormOpen(!formOpen)} >
+      <button id="updateBtn" onClick={() => setFormOpen(!formOpen)} >
         Update Your Buddy
       </button>
         <div>

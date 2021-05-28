@@ -47,8 +47,8 @@ function Navigation({ isLoaded }){
           {/* <button id='pet-search-btn'>
           <NavLink id='navLinkPetSearch' className='nav-search' to="/pets/search">Search</NavLink>
           </button> */}
-          <button id='pet-add-btn'>
-          <NavLink id='navLinkPetAdd' className='nav-search' to="/pets/add">Add a Pet</NavLink>
+          <button id='nav-add'>
+          <NavLink id='navLinkPetAdd' className='nav-add' to="/pets/add">Add a Pet</NavLink>
           </button>
           {isLoaded && sessionLinks}
 

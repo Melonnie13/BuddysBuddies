@@ -1,0 +1,13 @@
+#updateBtn:hover{
+    background-color: #da7f8f;
+    color: #faf3f3;
+    font-weight: bold;
+}
+#updateBtn{
+    background-color: #a7bbc7;
+    color: #faf3f3;
+    font-weight: bold;
+    font-size: 1em;
+    width:auto;
+    border-radius: 10px;
+}

@@ -1,1 +1,46 @@
+#addPetTitle{
+    background-color: #a7bbc7;
+    color: #faf3f3;
+    font-weight: bold;
+    font-size: 2em;
+    width:auto;
+    border-radius: 10px;
 
+}
+#createAPetForm{
+    background-color: #faf3f3;
+}
+#addPetDisclaimer-emergency{
+    background-color: #da7f8f;
+    color: #faf3f3;
+    font-weight: bold;
+    font-size: 1.5em;
+    width:auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 5px;
+}
+.createPetFormdiv{
+    background-color: #a7bbc7;
+    color: #faf3f3;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 5px;
+}
+#createPetBtn:hover{
+    background-color: #da7f8f;
+    color: #faf3f3;
+    font-weight: bold;
+}
+#createPetBtn{
+    background-color: #a7bbc7;
+    color: #faf3f3;
+    font-weight: bold;
+    font-size: 1em;
+    width:auto;
+    border-radius: 10px;
+}
+.createPetForm-input{
+    background-color: #faf3f3;
+}

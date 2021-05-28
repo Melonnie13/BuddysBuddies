@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useHistory, useParams} from 'react-router';
 
 import * as petActions from '../../store/pets';
-// import './CreatePetForm.css';
+import './DeletePet.css';
 
 const DeletePet = () => {
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const DeletePet = () => {
 
     return (
         <div>
-            <button onClick={deletePetEvent} className='deleteBtn' type='submit'>Delete Pet</button>
+            <button onClick={deletePetEvent} id='deleteBtn'>Remove Your Buddy</button>
         </div>
     )
 

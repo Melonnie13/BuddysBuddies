@@ -5,9 +5,16 @@
     color: #faf3f3;
     font-size: larger;
 }
-
 .recentPetsbtn{
     background-color: #a7bbc7;
+    color: #faf3f3;
+    font-weight: bold;
+    font-size: 1em;
+    width:auto;
+    border-radius: 10px;
+}
+.recentPetsbtn:hover{
+    background-color: #da7f8f;
     color: #faf3f3;
     font-weight: bold;
     font-size: 1.5em;
@@ -15,9 +22,10 @@
     border-radius: 10px;
 }
 .petsContainerDiv{
-    background-color: #da7f8f;
+    background-color: #a7bbc7;
     color: #faf3f3;
     font-weight: bold;
+    border-radius: 10px;
     /* display: flex; */
     /* text-align: center; */
 }

@@ -66,11 +66,11 @@ const CreatePetForm = () => {
 // setPetname(petName)
     return(
         <div className='create-pet-form-div'>
-        <h2 id='addPetTitle'> Add a buddy </h2>
-        <h4 id='addPetDisclaimer-emergency'> Please seek immediate veterinary care for emergencies and prior to posting.</h4>
-        <h4 id='addPetDisclaimer-longterm'> Pets in need of long-term, non-emergency veterinary care may be added.</h4>
-        <form className='createAPetForm' onSubmit={createPet}>
-            <div id='createPetForm-petName-div'>
+        <h3 id='addPetTitle'> Add a buddy </h3>
+        <div id='addPetDisclaimer-emergency'> Please seek immediate veterinary care for emergencies and prior to posting.</div>
+        <div id='addPetDisclaimer-emergency'> Pets in need of long-term, non-emergency veterinary care may be added.</div>
+        <form id='createAPetForm' onSubmit={createPet}>
+            <div className='createPetFormdiv'>
                 <label id='createPetForm-label'>
                     Pet Name
                     <input
@@ -83,7 +83,7 @@ const CreatePetForm = () => {
                     />
                 </label>
             </div>
-            <div id='createPetForm-age-div'>
+            <div className='createPetFormdiv'>
                 <label id='createPetForm-label'>
                     Pet Age
                     <select id='createPetForm-age-select'
@@ -100,7 +100,7 @@ const CreatePetForm = () => {
                     </select>
                 </label>
             </div>
-            <div id='createPetForm-sex-div'>
+            <div className='createPetFormdiv'>
                 <label id='createPetForm-label'>
                     Sex of Pet
                     <input
@@ -113,7 +113,7 @@ const CreatePetForm = () => {
                     />
                 </label>
             </div>
-            <div id='createPetForm-petType-div'>
+            <div className='createPetFormdiv'>
                 <label id='createPetForm-label'>
                     Type of Pet
                     <input
@@ -126,7 +126,7 @@ const CreatePetForm = () => {
                     />
                 </label>
             </div>
-            <div id='createPetForm-otherPets-div'>
+            <div className='createPetFormdiv'>
                 <label id='createPetForm-label'>
                     Does this pet get along with other pets?
                     <input
@@ -139,7 +139,7 @@ const CreatePetForm = () => {
                     />
                 </label>
             </div>
-            <div id='createPetForm-temperament-div'>
+            <div className='createPetFormdiv'>
                 <label id='createPetForm-label'>
                     Pet Personality - calm, aggressive, shy, etc...
                     <input
@@ -152,7 +152,7 @@ const CreatePetForm = () => {
                     />
                 </label>
             </div>
-            <div id='createPetForm-specialCare-div'>
+            <div className='createPetFormdiv'>
                 <label id='createPetForm-label'>
                     Does this pet require special care?
                     <input
@@ -165,7 +165,7 @@ const CreatePetForm = () => {
                     />
                 </label>
             </div>
-            <div id='createPetForm-tricks-div'>
+            <div className='createPetFormdiv'>
                 <label id='createPetForm-label'>
                     Any special tricks?
                     <input
@@ -177,13 +177,14 @@ const CreatePetForm = () => {
                     />
                 </label>
             </div>
-            <div id='createPetForm-adoptable-div'>
+            <div className='createPetFormdiv'>
                 Available for Adoption?
                 <span>
                     <label id='createPetForm-label'>
                         Yes
                         <input
                             type='radio'
+                            className='createPetForm-input'
                             value={true}
                             name='adoptable'
                             checked={adoptable === true}
@@ -194,6 +195,7 @@ const CreatePetForm = () => {
                         No
                         <input
                             type='radio'
+                            className='createPetForm-input'
                             value={false}
                             name='adoptable'
                             checked={adoptable === false}
@@ -201,13 +203,15 @@ const CreatePetForm = () => {
                         />
                     </label>
                 </span>
-            </div><div id='createPetForm-single-div'>
+            </div>
+            <div className='createPetFormdiv'>
                 Is this pet single, or part of a pet family?
                 <span>
                     <label id='createPetForm-label'>
                         Yes
                         <input
                             type='radio'
+                            className='createPetForm-input'
                             value={true}
                             name='single'
                             checked={single === true}
@@ -218,6 +222,7 @@ const CreatePetForm = () => {
                         No
                         <input
                             type='radio'
+                            className='createPetForm-input'
                             value={false}
                             name='single'
                             checked={single === false}
@@ -226,7 +231,7 @@ const CreatePetForm = () => {
                     </label>
                 </span>
             </div>
-            <button type='submit'>
+            <button id='createPetBtn' type='submit'>
 
                     Add Pet
 
