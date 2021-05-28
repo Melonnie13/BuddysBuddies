@@ -7,11 +7,11 @@ import "./UpdatePet.css";
 
 const UpdatePet = () => {
   const dispatch = useDispatch();
-  const pet = useSelector((state) => state.pets);
+  const pet = useSelector((state) => state.pet);
 //   console.log("********", pet);
   const { id } = useParams();
-//   console.log("********", typeof id);
-  const history = useHistory();
+  console.log("********", id);
+//   const history = useHistory();
 
   const [petName, setPetName] = useState(pet?.petName);
   const [age, setAge] = useState(pet?.age);
@@ -26,15 +26,15 @@ const UpdatePet = () => {
   const [inputValue, setInputValue] = useState("");
   const [formOpen, setFormOpen] = useState(false);
 
-  useEffect(() => {
-    setPetName(pet.petName)
-    console.log('useEffectPet', pet.petName)
-    console.log(pet)
-  }, []);
+//   useEffect(() => {
+//     setPetName(petName)
+//     console.log('useEffectPet', pet)
+//     console.log(pet)
+//   }, []);
 
   useEffect(() => {
-    dispatch(getOnePet(+id));
-  }, [dispatch]);
+    dispatch(getOnePet(id));
+  }, [dispatch, id]);
 
   const updatePetEvent = async (e) => {
       e.preventDefault();
@@ -52,6 +52,7 @@ const UpdatePet = () => {
         adoptable,
         single
     };
+
     const updatedPet = await dispatch(updateAPet(pet));
     console.log('updatedPet component event', updatedPet)
     setFormOpen(!formOpen);
@@ -61,13 +62,13 @@ const UpdatePet = () => {
 
   return (
     <div className="update-pet-form-div">
-      <div className="updateBtn" onClick={() => setFormOpen(!formOpen)} >
+      <button className="updateBtn" onClick={() => setFormOpen(!formOpen)} >
         Update Your Buddy
-      </div>
+      </button>
         <div>
             {formOpen &&
                 <>
-                <form className="createAPetForm" onSubmit={updatePetEvent}>
+                <form className="updateAPetForm" onSubmit={updatePetEvent}>
                     <div id="createPetForm-petName-div">
                     <label id="createPetForm-label">
                         Pet Name
@@ -75,7 +76,7 @@ const UpdatePet = () => {
                         type="text"
                         name="petName"
                         className="createPetForm-input"
-                        value={petName}
+                        value={pet.petName}
                         onChange={(e) => setPetName(e.target.value)}
                         required
                         />
@@ -106,7 +107,7 @@ const UpdatePet = () => {
                         type="text"
                         name="sex"
                         className="createPetForm-input"
-                        value={sex}
+                        value={pet.sex}
                         onChange={(e) => setSex(e.target.value)}
                         required
                         />
@@ -119,7 +120,7 @@ const UpdatePet = () => {
                         type="text"
                         name="petType"
                         className="createPetForm-input"
-                        value={petType}
+                        value={pet.petType}
                         onChange={(e) => setPetType(e.target.value)}
                         required
                         />
@@ -132,7 +133,7 @@ const UpdatePet = () => {
                         type="text"
                         name="otherPets"
                         className="createPetForm-input"
-                        value={otherPets}
+                        value={pet.otherPets}
                         onChange={(e) => setOtherPets(e.target.value)}
                         required
                         />
@@ -145,7 +146,7 @@ const UpdatePet = () => {
                         type="text"
                         name="temperament"
                         className="createPetForm-input"
-                        value={temperament}
+                        value={pet.temperament}
                         onChange={(e) => setTemperament(e.target.value)}
                         required
                         />
@@ -158,7 +159,7 @@ const UpdatePet = () => {
                         type="text"
                         name="specialCare"
                         className="createPetForm-input"
-                        value={specialCare}
+                        value={pet.specialCare}
                         onChange={(e) => setSpecialCare(e.target.value)}
                         required
                         />
@@ -171,7 +172,7 @@ const UpdatePet = () => {
                         type="text"
                         name="tricks"
                         className="createPetForm-input"
-                        value={tricks}
+                        value={pet.tricks}
                         onChange={(e) => setTricks(e.target.value)}
                         />
                     </label>

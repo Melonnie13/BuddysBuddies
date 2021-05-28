@@ -6,7 +6,7 @@ import petsReducer from './pets';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  pets: petsReducer,
+  pet: petsReducer,
   // couch: couchReducer
 });
 

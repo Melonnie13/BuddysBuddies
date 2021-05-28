@@ -139,15 +139,14 @@ const petsReducer = (state = initialState, action) => {
             }
         case UPDATE_ONE: {
             const petUpdated = {
-                ...state,
-            [action.pet.id]: action.pet
+                ...action.pet
             };
             return petUpdated;
             }
         case GET_ONE:{
             const onePet = {
-                ...state,
-                [action.pet.id]: action.pet
+                // ...state,
+                ...action.pet
             }
             return onePet;
             }

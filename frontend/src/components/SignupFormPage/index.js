@@ -33,14 +33,14 @@ function SignupFormPage() {
 
   return (
       <div className='signUpFormContainer'>
-        <h2 className='title'>Sign up to become a buddy!</h2>
-        <form className='signUpForm' onSubmit={onSubmit}>
+        <h2 id='title'>Sign up to become a buddy!</h2>
+        <form id='signUpForm' onSubmit={onSubmit}>
           {/* <div className='signUpFormDiv'> */}
             <ul className='signUpFormUL'>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
           {/* </div> */}
-            <div className='signUpForm-email-div'>
+            <div className='signUpFormdiv'>
               <label className='signUpFormLabel'>
                 Email
                 <input
@@ -52,7 +52,7 @@ function SignupFormPage() {
                 />
               </label>
             </div>
-            <div className='signUpForm-username-div'>
+            <div className='signUpFormdiv'>
               <label className='signUpFormLabel'>
                 Username
                 <input
@@ -64,7 +64,7 @@ function SignupFormPage() {
                 />
               </label>
             </div>
-            <div className='signUpForm-password-div'>
+            <div className='signUpFormdiv'>
               <label className='signUpFormLabel'>
                 Password
                 <input
@@ -76,7 +76,7 @@ function SignupFormPage() {
                 />
               </label>
             </div>
-            <div className='signUpForm-confirmPassword-div'>
+            <div className='signUpFormdiv'>
               <label className='signUpFormLabel'>
                 Confirm Password
                 <input

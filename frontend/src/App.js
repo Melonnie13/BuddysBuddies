@@ -4,8 +4,8 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import LoginFormModal from "./components/LoginFormModal/LoginForm";
 import SignupFormPage from "./components/SignupFormPage";
-import DeletePet from './components/DeletePet';
-import UpdatePet from './components/UpdatePet';
+// import DeletePet from './components/DeletePet';
+// import UpdatePet from './components/UpdatePet';
 import PetPage from './components/PetPage';
 // import CurrentCouch from './components/CurrentCouch;'
 // import CreateCouchForm from './components/CreateCouchForm';

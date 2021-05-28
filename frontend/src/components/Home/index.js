@@ -9,7 +9,7 @@ import PetsContainer from '../PetsContainer';
 
 const Home = () => {
     const dispatch = useDispatch();
-    const pets = useSelector((state) => Object.values(state.pets));
+    const pets = useSelector((state) => Object.values(state.pet));
     // console.log('PetsContainer_components/PetsContainer/index', pets);
     //  Object.values(state.pets));
     // console.log('PetsContainer_', pets);

@@ -56,29 +56,29 @@ const validatePetCreate = [
     .withMessage('Answer must be more than 10 and less than 200 characters.'),
   handleValidationErrors,
 ];
-const validatePetUpdate = [
-  check('petName')
-    .exists({ checkFalsy: true })
-    .isLength({min: 1})
-    .withMessage('Please provide a pet name.'),
-  check('age')
-    .exists({ checkFalsy: true })
-    .isLength({ min: 1 })
-    .withMessage('Please provide an age for the pet.'),
-  check('sex')
-    .exists({checkFalsy: true})
-    .withMessage('Please choose the sex of the pet'),
-  check('petType')
-    .exists({ checkFalsy: true })
-    .withMessage('Please enter a pet type.'),
-  check('otherPets')
-    .exists({checkFalsy: true})
-    .withMessage('Please let us know if this pet gets along with other pets and which types.'),
-  check('temperament')
-    .exists({checkFalsy: true})
-    .withMessage('Answer must be more than 10 and less than 200 characters.'),
-  handleValidationErrors,
-];
+// const validatePetUpdate = [
+//   check('petName')
+//     .exists({ checkFalsy: true })
+//     .isLength({min: 1})
+//     .withMessage('Please provide a pet name.'),
+//   check('age')
+//     .exists({ checkFalsy: true })
+//     .isLength({ min: 1 })
+//     .withMessage('Please provide an age for the pet.'),
+//   check('sex')
+//     .exists({checkFalsy: true})
+//     .withMessage('Please choose the sex of the pet'),
+//   check('petType')
+//     .exists({ checkFalsy: true })
+//     .withMessage('Please enter a pet type.'),
+//   check('otherPets')
+//     .exists({checkFalsy: true})
+//     .withMessage('Please let us know if this pet gets along with other pets and which types.'),
+//   check('temperament')
+//     .exists({checkFalsy: true})
+//     .withMessage('Answer must be more than 10 and less than 200 characters.'),
+//   handleValidationErrors,
+// ];
 
 router.get('/', asyncHandler(async(req, res) => {
   const pets = await Pet.findAll();
@@ -140,7 +140,7 @@ router.delete('/delete/:id', requireAuth, asyncHandler(async (req, res) => {
     return res.json(deletedPet);
   }
 }));
-router.put('/update/:id', validatePetUpdate, asyncHandler(async (req, res) => {
+router.put('/update/:id', asyncHandler(async (req, res) => {
   const petId = req.params.id;
   const { petName, age, sex, petType, otherPets, temperament, specialCare, tricks, adoptable, single } = req.body;
   const updatedPet = await Pet.findByPk(petId);

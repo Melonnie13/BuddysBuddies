@@ -13,7 +13,10 @@
     background-image: url('../../Images/IMG_0931.PNG');
     height: 300px;
     max-width: 100%;
+    top: 0px;
     position: sticky;
+    z-index: 1;
+
     /* display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-areas:

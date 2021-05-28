@@ -11,7 +11,7 @@
     padding: 20px;
 }
 
-.title {
+#title {
     display: flex;
     justify-content: center;
     text-align:center;
@@ -38,19 +38,7 @@
     border-radius: 10px;
 
 }
-.signUpForm-email-div {
-    padding: 10px;
-    border: 5px;
-}
-.signUpForm-username-div {
-    padding: 10px;
-    border: 5px;
-}
-.signUpForm-password-div {
-    padding: 10px;
-    border: 5px;
-}
-.signUpForm-confirmPassword-div {
+.signUpFormdiv {
     padding: 10px;
     border: 5px;
 }
@@ -64,10 +52,8 @@
     border-radius: 50%;
     height: 5em;
     width: 5em;
-
-
 }
-.signUpForm {
+#signUpForm {
     display: flex;
     align-items: center;
     flex-direction: column;
