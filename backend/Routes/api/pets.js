@@ -141,13 +141,15 @@ router.delete('/delete/:id', requireAuth, asyncHandler(async (req, res) => {
   }
 }));
 router.put('/update/:id', validatePetUpdate, asyncHandler(async (req, res) => {
-  const id = req.params.id;
+  const petId = req.params.id;
   const { petName, age, sex, petType, otherPets, temperament, specialCare, tricks, adoptable, single } = req.body;
+  const updatedPet = await Pet.findByPk(petId);
 
-  const updatedPet = await Pet.findByPk(id);
+  if(updatedPet){
   await updatedPet.update({petName, age, sex, petType, otherPets, temperament, specialCare, tricks, adoptable, single});
   console.log('*********api updatedPet', updatedPet);
   return res.json({updatedPet})
+  }
 }));
 
 //requireAuth for only logged-in users to access this endpoint

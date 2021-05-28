@@ -7,9 +7,10 @@ import "./UpdatePet.css";
 
 const UpdatePet = () => {
   const dispatch = useDispatch();
-  const pet = useSelector((state) => state.pet);
+  const pet = useSelector((state) => state.pets);
   console.log("********", pet);
   const { id } = useParams();
+//   console.log("********", typeof id);
   const history = useHistory();
 
   const [petName, setPetName] = useState(pet?.petName);
@@ -26,13 +27,14 @@ const UpdatePet = () => {
   const [formOpen, setFormOpen] = useState(false);
 
   useEffect(() => {
-    dispatch(getOnePet(id));
+    dispatch(getOnePet(+id));
   }, [dispatch]);
 
   const updatePetEvent = async (e) => {
       e.preventDefault();
 
     const pet = {
+        id,
         petName,
         age,
         sex,
@@ -45,17 +47,14 @@ const UpdatePet = () => {
         single
     };
     const updatedPet = await dispatch(updateAPet(pet));
-    if(updatedPet) {
         return history.push(`/pets/${updatedPet.id}`);
-
-    }
   };
 
-  
+
 
   return (
-    <div className="update-pet-form-div" onClick={() => setFormOpen(!formOpen)}>
-      <div className="updateBtn" >
+    <div className="update-pet-form-div">
+      <div className="updateBtn" onClick={() => setFormOpen(!formOpen)} >
         Update Your Buddy
       </div>
         <div>
@@ -221,7 +220,7 @@ const UpdatePet = () => {
                     </span>
                     </div>
                     <button type="submit">Save Changes</button>
-                </form>{" "}
+                </form>
                 </>
             }
         </div>

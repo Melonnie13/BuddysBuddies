@@ -2,7 +2,7 @@ import {csrfFetch} from './csrf'
 // Define Action Types as Constants
 
 const GET_PETS= 'pets/GET_PETS';
-const GET_PETS_TYPES= 'pets/GET_PETS_TYPES';
+// const GET_PETS_TYPES= 'pets/GET_PETS_TYPES';
 const ADD_PET= 'pets/ADD_PET';
 // const GET_ONE='pets/GET_ONE';
 const UPDATE_ONE='pets/UPDATE_ONE';
@@ -92,21 +92,22 @@ export const updateAPet = (pet) => async (dispatch) => {
         method: 'PUT',
         body: JSON.stringify(pet)
     });
-
     if (res.ok) {
         const updatedPet = await res.json();
-        dispatch(updatePet(updatedPet))
+        dispatch(updatePet(pet))
         console.log('store update thunk', updatedPet);
+        return updatedPet;
     }
 };
 export const getOnePet = (id) => async (dispatch) => {
     const res = await csrfFetch(`/api/pets/${id}`);
-    console.log('thunk', res)
+    console.log('getOnePetfetch thunk', res)
 
     if (res.ok) {
         const pet = await res.json();
-        console.log('getOnePetthunk', pet)
+        console.log('getOnePetthunkres', pet)
         dispatch(getPet(pet))
+        return pet;
     }
 };
 
@@ -129,11 +130,6 @@ const petsReducer = (state = initialState, action) => {
                     ...state,
                     [action.pet.id]: action.pet
                 };
-                // const pets = petAdded.pets.map(id => petAdded[id]);
-                // ^^ this keys into my petsAdded abd exoectubg it to be an array
-                // pets.push(action.pet);
-                // petAdded.list = (pets);
-                // can I just sort by created_at?
                 return petAdded;
             };
         case DELETE_ONE:{
@@ -144,7 +140,7 @@ const petsReducer = (state = initialState, action) => {
         case UPDATE_ONE: {
             const petUpdated = {
                 ...state,
-            [action.updatedPet.id]: action.updatedPet
+            [action.pet.id]: action.pet
             };
             return petUpdated;
             }

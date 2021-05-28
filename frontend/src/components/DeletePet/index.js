@@ -16,7 +16,6 @@ const DeletePet = () => {
         const deletedPet = await dispatch(petActions.deleteAPet(id));
         history.push('/')
 
-        // how do I use this exactly??
     }
 
     return (
