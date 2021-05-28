@@ -8,7 +8,7 @@ import "./UpdatePet.css";
 const UpdatePet = () => {
   const dispatch = useDispatch();
   const pet = useSelector((state) => state.pets);
-  console.log("********", pet);
+//   console.log("********", pet);
   const { id } = useParams();
 //   console.log("********", typeof id);
   const history = useHistory();
@@ -25,6 +25,12 @@ const UpdatePet = () => {
   const [single, setSingle] = useState(pet?.single);
   const [inputValue, setInputValue] = useState("");
   const [formOpen, setFormOpen] = useState(false);
+
+  useEffect(() => {
+    setPetName(pet.petName)
+    console.log('useEffectPet', pet.petName)
+    console.log(pet)
+  }, []);
 
   useEffect(() => {
     dispatch(getOnePet(+id));
@@ -47,7 +53,8 @@ const UpdatePet = () => {
         single
     };
     const updatedPet = await dispatch(updateAPet(pet));
-        return history.push(`/pets/${updatedPet.id}`);
+    console.log('updatedPet component event', updatedPet)
+    setFormOpen(!formOpen);
   };
 
 

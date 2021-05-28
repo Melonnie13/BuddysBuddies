@@ -9,7 +9,8 @@ import * as petActions from '../../store/pets'
 
 const PetPage = () => {
     const dispatch = useDispatch();
-    const pet = useSelector((state) => state.pet);
+    const pet = useSelector((state) => state.pets);
+    // console.log('petPagecomponent', pet)
     const {id} = useParams();
     const history = useHistory();
 
