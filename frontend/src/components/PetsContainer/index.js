@@ -22,10 +22,11 @@ const PetsContainer = () => {
 
     return (
 
-        <div className='petsContainerDiv'><h1 id='recentlyAddedTitle'>Newest Buddies</h1>
+        <div className='petsContainerDiv'>
+            {/* <h1 id='recentlyAddedTitle'>Newest Buddies</h1> */}
             <ul className='recentPets'>
                 {pets.map(pet =>
-                <button className='recentPetsbtn'>
+                <li className='recentPetsbtn'>
                     <Link  to={`/pets/${pet.id}`}>
                     <div id='recentPetsList' key={pet.id}>
                         <h3>{pet.petName}</h3>
@@ -59,7 +60,7 @@ const PetsContainer = () => {
                         <span>{`single: ${pet.single}`}</span>
                         </div>
 
-                    </button>)}
+                    </li>)}
                 {/* {where do i set the key here? */}
 
             </ul>

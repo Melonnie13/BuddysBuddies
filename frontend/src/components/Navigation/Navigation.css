@@ -10,10 +10,14 @@
  margin: 0px;
 }
 .banner{
-    background-image: url('../../Images/IMG_0931.PNG');
-    height: 300px;
+    background-image: url('../../Images/fosterKitten1.jpg');
+    margin-left:auto;
+    margin-right:auto;
     max-width: 100%;
-    top: 0px;
+    height: 300px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: -100px;
 }
 #navLinkHome {
     color: #faf3f3;

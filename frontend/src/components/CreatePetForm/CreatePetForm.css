@@ -5,10 +5,13 @@
     font-size: 2em;
     width:auto;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
 
 }
 #createAPetForm{
     background-color: #faf3f3;
+
 }
 #addPetDisclaimer-emergency{
     background-color: #da7f8f;
@@ -22,11 +25,14 @@
     padding: 5px;
 }
 .createPetFormdiv{
+    display: flex;
     background-color: #a7bbc7;
     color: #faf3f3;
     font-weight: bold;
     border-radius: 10px;
     padding: 5px;
+    align-content: space-between;
+    border: 5px;
 }
 #createPetBtn:hover{
     background-color: #da7f8f;
