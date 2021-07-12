@@ -54,7 +54,7 @@ const UpdatePet = () => {
     };
 
     const updatedPet = await dispatch(updateAPet(pet));
-    console.log('updatedPet component event', updatedPet)
+    // console.log('updatedPet component event', updatedPet)
     setFormOpen(!formOpen);
   };
 

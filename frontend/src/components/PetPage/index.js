@@ -11,14 +11,14 @@ import * as petActions from '../../store/pets'
 const PetPage = () => {
     const dispatch = useDispatch();
     const pet = useSelector((state) => state.pet);
-    console.log('petPagecomponent', pet)
+    // console.log('petPagecomponent', pet)
     // const {id} = useParams();
     // const history = useHistory();
 
       useEffect(() => {
         dispatch(petActions.getOnePet(pet))
-        console.log('useEffectPet', pet)
-        console.log(pet)
+        // console.log('useEffectPet', pet)
+        // console.log(pet)
     }, [dispatch, pet]);
     // const onePetEvent = async (e) => {
     //     e.preventDefault();

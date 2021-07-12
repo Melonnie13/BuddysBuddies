@@ -147,7 +147,7 @@ router.put('/update/:id', requireAuth, asyncHandler(async (req, res) => {
 
   if(updatedPet){
   await updatedPet.update({petName, age, sex, petType, otherPets, temperament, specialCare, tricks, adoptable, single});
-  console.log('*********api updatedPet', updatedPet);
+  // console.log('*********api updatedPet', updatedPet);
   return res.json({updatedPet})
   }
 }));

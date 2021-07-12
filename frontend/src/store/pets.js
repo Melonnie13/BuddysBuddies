@@ -95,17 +95,17 @@ export const updateAPet = (pet) => async (dispatch) => {
     if (res.ok) {
         const updatedPet = await res.json();
         dispatch(updatePet(pet))
-        console.log('store update thunk', updatedPet);
+        // console.log('store update thunk', updatedPet);
         return updatedPet;
     }
 };
 export const getOnePet = (id) => async (dispatch) => {
     const res = await csrfFetch(`/api/pets/${id}`);
-    console.log('getOnePetfetch thunk', res)
+    // console.log('getOnePetfetch thunk', res)
 
     if (res.ok) {
         const pet = await res.json();
-        console.log('getOnePetthunkres', pet)
+        // console.log('getOnePetthunkres', pet)
         dispatch(getPet(pet))
         return pet;
     }
